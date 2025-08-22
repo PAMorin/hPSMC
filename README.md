@@ -28,7 +28,7 @@ gnuplot v5.4.1
 
 psmc (from https://github.com/lh3/psmc)
 
-ms 201809 (from )
+ms (Hudson, R. R. (2002), https://home.uchicago.edu/~rhudson1/source/mksamples.html)
 
 From https://github.com/jacahill/hPSMC/tree/master:
 
