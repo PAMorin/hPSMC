@@ -58,7 +58,7 @@ New subdirectory containing haploid consensus genome fasta files for each sample
 Input: 
 consensus_autosome_genomes_list.txt: a text file listing the names of the haploid consensus genomes generated in step 1, all in one directory.
 
-sbatch 2.Pcra_psmcfa_sedna.sh
+`sbatch 2.Pcra_psmcfa_sedna.sh`
 
 (this script calls the python script 'psmcfa_from_2_fastas.py')
 
@@ -73,7 +73,7 @@ psmcfa_files.txt: a text file with the list of psmcfa files from step 2, all in 
 Genome-wide mutation rate (substitutions/site/year)
 Generation length to be used for scaling hPSMC plots. This should be an estimated average for the species being compared.
 
-sbatch 3.hPSMC_array_sedna.sh
+`sbatch 3.hPSMC_array_sedna.sh`
 
 Output:
 standard psmc output files for each pseudo-hybrid pair:
@@ -99,7 +99,7 @@ PSMC_PreDivNe_list.csv: CSV file containing column of sample/species pairs (matc
 
 (insert example)
 
-sbatch 4.hPSMC_split_simulations_array_sedna.sh
+`sbatch 4.hPSMC_split_simulations_array_sedna.sh`
 
 (This bash script calls python script "hPSMC_quantify_split_time.py")
 
