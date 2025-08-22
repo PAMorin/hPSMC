@@ -11,6 +11,8 @@ Cahill, J.A., Soares, A.E., Green, R.E., Shapiro, B., 2016. Inferring species di
 
 Li, H., Durbin, R., 2011. Inference of human population history from individual whole-genome sequences. Nature 475, 493-496.
 
+Hudson RR, 2002. Generating samples under a Wright-Fisher neutral model of genetic variation., Bioinformatics, 18:337-8
+
 # Getting Started
 
 ## Dependencies
@@ -26,8 +28,13 @@ gnuplot v5.4.1
 
 psmc (from https://github.com/lh3/psmc)
 
+ms 201809 (from )
+
 From https://github.com/jacahill/hPSMC/tree/master:
+
 psmcfa_from_2_fastas.py
+
+hPSMC_quantify_split_time.py
 
 
 ## 1. Generate consensus sequences
@@ -80,8 +87,24 @@ psmc.out.eps - rendered plot of the psmc results (Encapsulated PostScript format
 psmc.out.0.txt - summary output for psmc (used to determine the pre-divergence Ne in next step).
 
 
-## 4. Simulate hPSMC to estimate confidence intervals for divergence time
+## 4. Simulate hPSMC using ms coalescent simulator to estimate confidence intervals for divergence time
 
+Input:
+Genome-wide mutation rate (substitutions/site/year). Use the same rate as used in step 3.
+Generation length to be used for scaling hPSMC plots. This should be an estimated average for the species being compared. Use the same generation length as used in step 3.
+Simulation number and time range (e.g., 100,000 - 1,000,000 years in 100,000 year increments)
+PSMC_PreDivNe_list.csv: CSV file containing column of sample/species pairs (matching output file format from step 3) and the estimated pre-divergence Ne value for each pair.
+
+### Get the estimated pre-divergence Ne for each pair from the step 3 output file "...psmc.out.0.txt". The third column in the file represents Ne/10,000. Select a value that immediately precedes the rapid increase in the top lines of the file, representing the onset of divergence. 
+
+(insert example)
+
+sbatch 4.hPSMC_split_simulations_array_sedna.sh
+
+(This bash script calls python script "hPSMC_quantify_split_time.py")
+
+Output:
+Directories for each simulated pair, containing simulation files, including combined simulation and empirical data derived hPSMC output, "...simulations.combined.txt" for use in plotting results.
 
 
 ## 5. plot combined hPSMC and simulated hPSMC results to identify divergence time confidence interval.
