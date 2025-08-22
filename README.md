@@ -2,13 +2,14 @@
 Implementation of hPSMC scripts for SLURM scheduler on linux cluster, based on Cahill et al. 2016 (doi: 10.1098/rstb.2015.0138)
 
 # Description
-:
+
 This repository describes a pipeline for conducting hybrid PSMC analysis (hPSMC) as described by Cahill et al. (2016), available in the Github repository https://github.com/jacahill/hPSMC. It includes scripts from that publication, and additional bash scripts developed to facilitate running the hPSMSC pipeline scripts in a SLURM scheduler on a Linux cluster. 
 
 If you are using these scripts, please cite the following papers.
 
 Cahill, J.A., Soares, A.E., Green, R.E., Shapiro, B., 2016. Inferring species divergence times using pairwise sequential Markovian coalescent modelling and low-coverage genomic data. Philos Trans R Soc Lond B Biol Sci 371.
 
+Li, H., Durbin, R., 2011. Inference of human population history from individual whole-genome sequences. Nature 475, 493-496.
 
 # Getting Started
 
@@ -16,12 +17,16 @@ Cahill, J.A., Soares, A.E., Green, R.E., Shapiro, B., 2016. Inferring species di
 Before running the pipeline, make sure you have installed the following programs:
 
 angsd v0.940
+
 samtools v1.11
+
 bcftools v1.11
+
 gnuplot v5.4.1
+
 psmc (from https://github.com/lh3/psmc)
 
-from https://github.com/jacahill/hPSMC/tree/master:
+From https://github.com/jacahill/hPSMC/tree/master:
 psmcfa_from_2_fastas.py
 
 
@@ -53,7 +58,7 @@ Output:
 New subdirectory containing pseudo-hybrid 'psmcfa' files for each species/sample pair.
 
 
-## 3. Run PSMC on pseudo-hybrid sequences
+## 3. Run PSMC on pseudo-hybrid (psmcfa) sequences. PSMC is set to use default settings from Li and Durban, 2011 but using mutation rate and generation times appropriate to the target species. 
 
 Input:
 psmcfa_files.txt: a text file with the list of psmcfa files from step 2, all in one directory.
@@ -63,8 +68,20 @@ Generation length to be used for scaling hPSMC plots. This should be an estimate
 sbatch 3.hPSMC_array_sedna.sh
 
 Output:
+standard psmc output files for each pseudo-hybrid pair:
+
+psmc - the psmc output file used to generate the plot
+psmc.out.gp - gnuplot input file for plotting psmc results
+psmc.out.eps - rendered plot of the psmc results (Encapsulated PostScript format)
+psmc.out.0.txt - summary output for psmc (used to determine the pre-divergence Ne in next step).
 
 
 ## 4. Simulate hPSMC to estimate confidence intervals for divergence time
+
+
+
+## 5. plot combined hPSMC and simulated hPSMC results to identify divergence time confidence interval.
+
+
 
 
