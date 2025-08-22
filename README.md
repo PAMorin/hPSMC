@@ -15,10 +15,14 @@ Cahill, J.A., Soares, A.E., Green, R.E., Shapiro, B., 2016. Inferring species di
 ## Dependencies
 Before running the pipeline, make sure you have installed the following programs:
 
-angsd v0.940 
+angsd v0.940
+samtools v1.11
+bcftools v1.11
+gnuplot v5.4.1
+psmc (from https://github.com/lh3/psmc)
 
-
-
+from https://github.com/jacahill/hPSMC/tree/master:
+psmcfa_from_2_fastas.py
 
 
 ## 1. Generate consensus sequences
@@ -26,20 +30,41 @@ angsd v0.940
 Methods described on github.com/jacahill/hpsmc use the program "pu2fa" to genearte haploidized consensus chromosome sequences from a bam pileup file, using very high base quality threshold (-Q60) to "minimize the inpact of sequencing error". Here, I use the program angsd to generate the haploid consensus genome, including only specified chromosomes, and less stringent mapping and base quality thresholds (-minQ 25 -minmapq 25). 
 
 Input:
-bamlist.txt: a text file listing the path and filename for each sample or species bam file to be used for generating pseudo-hybrid genomes. 
+bamlist.txt: a text file listing the path and filename for each sample or species bam file to be used for generating pseudo-hybrid genomes. File names should start with format ${sp}_${ID}, where sp=(species ID) and ID=(sample ID), separated by "_". 
+
+
 Chromosome IDs: the scaffold IDs that correspond to autosomes in a chromosome-resolved reference genome that was used as the reference for mapping reads from all of the samples/species to be used for generating pseudo-hybrid genomes.
 
 sbatch 1.hPSMC_consensus_genomes_array_sedna.sh
 
 Output:
-Haploid consensus genome fasta files for each sample/species genome bam file. 
+New subdirectory containing haploid consensus genome fasta files for each sample/species genome bam file. File names will start with format ${sp}_${ID}, where sp=(species ID) and ID=(sample ID), separated by "_". 
 
 
-2. Generate pseudo-hybrid sequence files (hpsmcfa)
+## 2. Generate pseudo-hybrid sequence files (hpsmcfa)
+
+Input: 
+consensus_autosome_genomes_list.txt: a text file listing the names of the haploid consensus genomes generated in step 1, all in one directory.
+
+sbatch 2.Pcra_psmcfa_sedna.sh
+	(this script calls the python script 'psmcfa_from_2_fastas.py')
+
+Output: 
+New subdirectory containing pseudo-hybrid 'psmcfa' files for each species/sample pair.
 
 
-3. Run PSMC on pseudo-hybrid sequences
+## 3. Run PSMC on pseudo-hybrid sequences
 
-4. Simulate hPSMC to estimate confidence intervals for divergence time
+Input:
+psmcfa_files.txt: a text file with the list of psmcfa files from step 2, all in one directory.
+Genome-wide mutation rate (substitutions/site/year)
+Generation length to be used for scaling hPSMC plots. This should be an estimated average for the species being compared.
+
+sbatch 3.hPSMC_array_sedna.sh
+
+Output:
+
+
+## 4. Simulate hPSMC to estimate confidence intervals for divergence time
 
 

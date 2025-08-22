@@ -25,7 +25,7 @@ INDIR=/home/pmorin/projects/Pcra/hPSMC_Dsuite_June2025/hPSMC
 psmcfa_DIR=${INDIR}/psmcfa_files
 OUTDIR=${INDIR}/hPSMC_output
 mkdir -p ${OUTDIR}
-psmcfa_files=Pcra_psmcfa_files.txt # lists psmcfa files; e.g., ls -1 *.psmcfa > psmcfa_files.txt
+psmcfa_files=psmcfa_files.txt # lists psmcfa files; e.g., ls -1 *.psmcfa > psmcfa_files.txt
 THREADS=10
 
 # PSMC parameters

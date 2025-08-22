@@ -18,7 +18,7 @@ psmcfa_script=/home/pmorin/scripts/misc/psmcfa_from_2_fastas.py
 
 ProjDir=/home/pmorin/projects/Pcra/hPSMC_Dsuite_June2025/hPSMC
 CONSDIR=${ProjDir}/hPSMC_consensus_sequences
-CONSLIST=${CONSDIR}/Pcra_consensus_autosome_genomes_list.txt
+CONSLIST=${CONSDIR}/consensus_autosome_genomes_list.txt
 # note, consensus genome must be decompressed
 psmcfaDIR=${ProjDir}/psmcfa_files
 

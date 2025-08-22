@@ -14,7 +14,7 @@ module load bio/angsd/0.940
 
 ProjDir=/home/pmorin/projects/Pcra/hPSMC_Dsuite_June2025
 OUTDIR=${ProjDir}/hPSMC_consensus_sequences
-BAMLIST=Pcra_bamlist.txt
+BAMLIST=bamlist.txt
 # Generate the list of files including paths to each file, e.g., '/share/swfsc/pmorin/Pcra_z0018462_dedup_noRepeats.bam'.
 THREADS=5
 baseQ=25 # minimum base quality
