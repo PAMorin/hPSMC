@@ -59,7 +59,7 @@ Output:
 New subdirectory containing pseudo-hybrid 'psmcfa' files for each species/sample pair.
 
 
-## 3. Run PSMC on pseudo-hybrid (psmcfa) sequences. PSMC is set to use default settings from Li and Durban, 2011 but using mutation rate and generation times appropriate to the target species. 
+## 3. Run PSMC on pseudo-hybrid (psmcfa) sequences. PSMC uses default settings from Li and Durban, 2011, except for the mutation rate and generation times appropriate to the target species. 
 
 Input:
 psmcfa_files.txt: a text file with the list of psmcfa files from step 2, all in one directory.
@@ -71,7 +71,7 @@ sbatch 3.hPSMC_array_sedna.sh
 Output:
 standard psmc output files for each pseudo-hybrid pair:
 
-psmc - the psmc output file used to generate the plot
+psmc - the psmc output file
 
 psmc.out.gp - gnuplot input file for plotting psmc results
 
