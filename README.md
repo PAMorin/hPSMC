@@ -35,7 +35,7 @@ psmcfa_from_2_fastas.py
 Methods described on github.com/jacahill/hpsmc use the program "pu2fa" to genearte haploidized consensus chromosome sequences from a bam pileup file, using very high base quality threshold (-Q60) to "minimize the inpact of sequencing error". Here, I use the program angsd to generate the haploid consensus genome, including only specified chromosomes, and less stringent mapping and base quality thresholds (-minQ 25 -minmapq 25). 
 
 Input:
-bamlist.txt: a text file listing the path and filename for each sample or species bam file to be used for generating pseudo-hybrid genomes. File names should start with format ${sp}_${ID}, where sp=(species ID) and ID=(sample ID), separated by "_". 
+bamlist.txt: a text file listing the path and filename for each sample or species bam file to be used for generating pseudo-hybrid genomes. File names should start with format "${sp}_${ID}", where sp=(species ID) and ID=(sample ID), separated by "_". 
 
 
 Chromosome IDs: the scaffold IDs that correspond to autosomes in a chromosome-resolved reference genome that was used as the reference for mapping reads from all of the samples/species to be used for generating pseudo-hybrid genomes.
@@ -43,7 +43,7 @@ Chromosome IDs: the scaffold IDs that correspond to autosomes in a chromosome-re
 sbatch 1.hPSMC_consensus_genomes_array_sedna.sh
 
 Output:
-New subdirectory containing haploid consensus genome fasta files for each sample/species genome bam file. File names will start with format ${sp}_${ID}, where sp=(species ID) and ID=(sample ID), separated by "_". 
+New subdirectory containing haploid consensus genome fasta files for each sample/species genome bam file. File names will start with format "${sp}_${ID}", where sp=(species ID) and ID=(sample ID), separated by "_". 
 
 
 ## 2. Generate pseudo-hybrid sequence files (hpsmcfa)
@@ -52,7 +52,8 @@ Input:
 consensus_autosome_genomes_list.txt: a text file listing the names of the haploid consensus genomes generated in step 1, all in one directory.
 
 sbatch 2.Pcra_psmcfa_sedna.sh
-	(this script calls the python script 'psmcfa_from_2_fastas.py')
+
+(this script calls the python script 'psmcfa_from_2_fastas.py')
 
 Output: 
 New subdirectory containing pseudo-hybrid 'psmcfa' files for each species/sample pair.
@@ -71,8 +72,11 @@ Output:
 standard psmc output files for each pseudo-hybrid pair:
 
 psmc - the psmc output file used to generate the plot
+
 psmc.out.gp - gnuplot input file for plotting psmc results
+
 psmc.out.eps - rendered plot of the psmc results (Encapsulated PostScript format)
+
 psmc.out.0.txt - summary output for psmc (used to determine the pre-divergence Ne in next step).
 
 
