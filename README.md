@@ -47,7 +47,7 @@ bamlist.txt: a text file listing the path and filename for each sample or specie
 
 Chromosome IDs: the scaffold IDs that correspond to autosomes in a chromosome-resolved reference genome that was used as the reference for mapping reads from all of the samples/species to be used for generating pseudo-hybrid genomes.
 
-sbatch 1.hPSMC_consensus_genomes_array_sedna.sh
+`sbatch 1.hPSMC_consensus_genomes_array_sedna.sh`
 
 Output:
 New subdirectory containing haploid consensus genome fasta files for each sample/species genome bam file. File names will start with format "${sp}_${ID}", where sp=(species ID) and ID=(sample ID), separated by "_". 
