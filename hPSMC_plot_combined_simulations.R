@@ -32,12 +32,15 @@ hpsmc<-blocks[hpsmcNo]
 blocks<-as.integer(blocks)
 blocks<-sort(blocks,decreasing = TRUE)
 
-### plot.margin = margin(top, right, bottom, left)
+########################################################
+# Simulated and empirical data plot
+
+## plot.margin = margin(top, right, bottom, left)
+
 # change line size for upper/lower CI's (from Cahill et al.: "Divergence is inferred 
 # to have occurred between the simulated divergence times of 300–400 ka (red shaded region),
 # as these are the closest simulations with transition times that do not intersect the transition
 # time of real data.
-
 sp1_sp2 <- ggplot() +
   geom_step(data=dataset[dataset$X3==hpsmc,], aes(x=log10(X1), y=X2, alpha=1, size=0.06)) +
   geom_step(data=dataset[dataset$X3==blocks[hpsmcNo-30],], aes(x=log10(X1), y=X2, alpha=0.9, size=0.05)) +
