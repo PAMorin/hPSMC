@@ -9,11 +9,11 @@ library(tidyverse)
 # e.g., z0076728.z41749 #2.97 
 
 #Read in the data
-species1<-"Bede"
-species2<-"Bric"
-Ne<-5.6156
+species1<-"Bbai"
+species2<-"Bmin"
+Ne<-3.0
 
-simulations.combined <- read_table(paste0(species1,"_",species2,"_mut2.20E-10_simulations.combined.txt"), 
+simulations.combined <- read_table(paste0(species1,"_",species2,"_mut9.1E-10_simulations.combined.txt"), 
                                    col_names = FALSE, col_types = cols(X3 = col_character()))
 
 #Plot all of the simulated data
@@ -39,37 +39,37 @@ blocks<-sort(blocks,decreasing = TRUE)
 # time of real data.
 
 sp1_sp2 <- ggplot() +
-  geom_step(data=dataset[dataset$X3==hpsmc,], aes(x=log10(X1), y=X2, alpha=1, size=0.1)) +
-  # geom_step(data=dataset[dataset$X3==blocks[hpsmcNo-30],], aes(x=log10(X1), y=X2, alpha=0.9, size=0.05)) +
-  # geom_step(data=dataset[dataset$X3==blocks[hpsmcNo-29],], aes(x=log10(X1), y=X2, alpha=0.9, size=0.05)) +
-  # geom_step(data=dataset[dataset$X3==blocks[hpsmcNo-28],], aes(x=log10(X1), y=X2, alpha=0.9, size=0.05)) +
-  # geom_step(data=dataset[dataset$X3==blocks[hpsmcNo-27],], aes(x=log10(X1), y=X2, alpha=0.9, size=0.05)) +
-  # geom_step(data=dataset[dataset$X3==blocks[hpsmcNo-26],], aes(x=log10(X1), y=X2, alpha=0.9, size=0.05)) +
-  # geom_step(data=dataset[dataset$X3==blocks[hpsmcNo-25],], aes(x=log10(X1), y=X2, alpha=0.9, size=0.05)) +
-  # geom_step(data=dataset[dataset$X3==blocks[hpsmcNo-24],], aes(x=log10(X1), y=X2, alpha=0.9, size=0.05)) +
-  # geom_step(data=dataset[dataset$X3==blocks[hpsmcNo-23],], aes(x=log10(X1), y=X2, alpha=0.9, size=0.05)) +
-  # geom_step(data=dataset[dataset$X3==blocks[hpsmcNo-22],], aes(x=log10(X1), y=X2, alpha=0.9, size=0.05)) +
-  # geom_step(data=dataset[dataset$X3==blocks[hpsmcNo-21],], aes(x=log10(X1), y=X2, alpha=0.9, size=0.05)) +
-  # geom_step(data=dataset[dataset$X3==blocks[hpsmcNo-20],], aes(x=log10(X1), y=X2, alpha=0.9, size=0.05)) +
-  # geom_step(data=dataset[dataset$X3==blocks[hpsmcNo-19],], aes(x=log10(X1), y=X2, alpha=0.9, size=0.05)) +
-  # geom_step(data=dataset[dataset$X3==blocks[hpsmcNo-18],], aes(x=log10(X1), y=X2, alpha=0.9, size=0.05)) +
-  # geom_step(data=dataset[dataset$X3==blocks[hpsmcNo-17],], aes(x=log10(X1), y=X2, alpha=0.9, size=0.05)) +
-  # geom_step(data=dataset[dataset$X3==blocks[hpsmcNo-16],], aes(x=log10(X1), y=X2, alpha=0.9, size=0.05)) +
-  # geom_step(data=dataset[dataset$X3==blocks[hpsmcNo-15],], aes(x=log10(X1), y=X2, alpha=0.9, size=0.05)) +
-  # geom_step(data=dataset[dataset$X3==blocks[hpsmcNo-14],], aes(x=log10(X1), y=X2, alpha=0.9, size=0.05)) +
-  # geom_step(data=dataset[dataset$X3==blocks[hpsmcNo-13],], aes(x=log10(X1), y=X2, alpha=0.9, size=0.05)) +
-  # geom_step(data=dataset[dataset$X3==blocks[hpsmcNo-12],], aes(x=log10(X1), y=X2, alpha=0.9, size=0.05)) +
-  # geom_step(data=dataset[dataset$X3==blocks[hpsmcNo-11],], aes(x=log10(X1), y=X2, alpha=0.9, size=0.05)) +
-  geom_step(data=dataset[dataset$X3==blocks[hpsmcNo-10],], aes(x=log10(X1), y=X2, alpha=1.0, size=0.05)) +
+  geom_step(data=dataset[dataset$X3==hpsmc,], aes(x=log10(X1), y=X2, alpha=1, size=0.06)) +
+  geom_step(data=dataset[dataset$X3==blocks[hpsmcNo-30],], aes(x=log10(X1), y=X2, alpha=0.9, size=0.05)) +
+  geom_step(data=dataset[dataset$X3==blocks[hpsmcNo-29],], aes(x=log10(X1), y=X2, alpha=0.9, size=0.05)) +
+  geom_step(data=dataset[dataset$X3==blocks[hpsmcNo-28],], aes(x=log10(X1), y=X2, alpha=0.9, size=0.05)) +
+  geom_step(data=dataset[dataset$X3==blocks[hpsmcNo-27],], aes(x=log10(X1), y=X2, alpha=0.9, size=0.05)) +
+  geom_step(data=dataset[dataset$X3==blocks[hpsmcNo-26],], aes(x=log10(X1), y=X2, alpha=0.9, size=0.05)) +
+  geom_step(data=dataset[dataset$X3==blocks[hpsmcNo-25],], aes(x=log10(X1), y=X2, alpha=0.9, size=0.05)) +
+  geom_step(data=dataset[dataset$X3==blocks[hpsmcNo-24],], aes(x=log10(X1), y=X2, alpha=0.9, size=0.05)) +
+  geom_step(data=dataset[dataset$X3==blocks[hpsmcNo-23],], aes(x=log10(X1), y=X2, alpha=0.9, size=0.05)) +
+  geom_step(data=dataset[dataset$X3==blocks[hpsmcNo-22],], aes(x=log10(X1), y=X2, alpha=0.9, size=0.05)) +
+  geom_step(data=dataset[dataset$X3==blocks[hpsmcNo-21],], aes(x=log10(X1), y=X2, alpha=0.9, size=0.05)) +
+  geom_step(data=dataset[dataset$X3==blocks[hpsmcNo-20],], aes(x=log10(X1), y=X2, alpha=0.9, size=0.05)) +
+  geom_step(data=dataset[dataset$X3==blocks[hpsmcNo-19],], aes(x=log10(X1), y=X2, alpha=0.9, size=0.05)) +
+  geom_step(data=dataset[dataset$X3==blocks[hpsmcNo-18],], aes(x=log10(X1), y=X2, alpha=0.9, size=0.05)) +
+  geom_step(data=dataset[dataset$X3==blocks[hpsmcNo-17],], aes(x=log10(X1), y=X2, alpha=0.9, size=0.05)) +
+  geom_step(data=dataset[dataset$X3==blocks[hpsmcNo-16],], aes(x=log10(X1), y=X2, alpha=0.9, size=0.05)) +
+  geom_step(data=dataset[dataset$X3==blocks[hpsmcNo-15],], aes(x=log10(X1), y=X2, alpha=0.9, size=0.05)) +
+  geom_step(data=dataset[dataset$X3==blocks[hpsmcNo-14],], aes(x=log10(X1), y=X2, alpha=0.9, size=0.05)) +
+  geom_step(data=dataset[dataset$X3==blocks[hpsmcNo-13],], aes(x=log10(X1), y=X2, alpha=1.0, size=0.05)) +
+  geom_step(data=dataset[dataset$X3==blocks[hpsmcNo-12],], aes(x=log10(X1), y=X2, alpha=0.9, size=0.05)) +
+  geom_step(data=dataset[dataset$X3==blocks[hpsmcNo-11],], aes(x=log10(X1), y=X2, alpha=0.9, size=0.05)) +
+  geom_step(data=dataset[dataset$X3==blocks[hpsmcNo-10],], aes(x=log10(X1), y=X2, alpha=0.9, size=0.05)) +
   geom_step(data=dataset[dataset$X3==blocks[hpsmcNo-9],], aes(x=log10(X1), y=X2, alpha=0.9, size=0.05)) +
   geom_step(data=dataset[dataset$X3==blocks[hpsmcNo-8],], aes(x=log10(X1), y=X2, alpha=0.9, size=0.05)) +
   geom_step(data=dataset[dataset$X3==blocks[hpsmcNo-7],], aes(x=log10(X1), y=X2, alpha=0.9, size=0.05)) +
   geom_step(data=dataset[dataset$X3==blocks[hpsmcNo-6],], aes(x=log10(X1), y=X2, alpha=0.9, size=0.05)) +
-  geom_step(data=dataset[dataset$X3==blocks[hpsmcNo-5],], aes(x=log10(X1), y=X2, alpha=0.9, size=0.05)) +
+  geom_step(data=dataset[dataset$X3==blocks[hpsmcNo-5],], aes(x=log10(X1), y=X2, alpha=1.0, size=0.05)) +
   geom_step(data=dataset[dataset$X3==blocks[hpsmcNo-4],], aes(x=log10(X1), y=X2, alpha=0.9, size=0.05)) +
   geom_step(data=dataset[dataset$X3==blocks[hpsmcNo-3],], aes(x=log10(X1), y=X2, alpha=0.9, size=0.05)) +
   geom_step(data=dataset[dataset$X3==blocks[hpsmcNo-2],], aes(x=log10(X1), y=X2, alpha=0.9, size=0.05)) +
-  geom_step(data=dataset[dataset$X3==blocks[hpsmcNo-1],], aes(x=log10(X1), y=X2, alpha=1.0, size=0.05)) +
+  geom_step(data=dataset[dataset$X3==blocks[hpsmcNo-1],], aes(x=log10(X1), y=X2, alpha=0.9, size=0.05)) +
   theme_classic() +
   labs(
     x = "log(Years before present)",
@@ -84,7 +84,7 @@ sp1_sp2 <- ggplot() +
   theme(axis.text.y = element_text(face = "bold", size=12, colour="black")) +
   #theme(axis.title.y = element_text(face = "bold", size=12)) + 
   theme(plot.margin = unit(c(0.0, 0.5, 0.0, 0.0), "in")) +
-  coord_cartesian(xlim=c(4, 7), ylim=c(0,500)) + 
+  coord_cartesian(xlim=c(4, 7), ylim=c(0,40)) + 
   scale_alpha_continuous(range=c(0.3,1), guide=FALSE) +
   scale_size(range=c(0.2,1.5), breaks = c(0.2,1.5), guide = FALSE) +
   labs(colour="Species") +

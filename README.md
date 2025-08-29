@@ -109,6 +109,24 @@ Directories for each simulated pair, containing simulation files, including comb
 
 ## 5. plot combined hPSMC and simulated hPSMC results to identify divergence time confidence interval.
 
+Input:
+<species_names>_simulations.combined.txt (one file for each pair of species)
+
+In R script "hPSMC_plot_combined_simulations.R", Enter the species (or sample) names as they appear in the simulations.combined.txt file, and the pre-divergence Ne that was used for the simulations for the species pair. 
+
+The "simulations.combined" object should be modified if needed to match the name of the input simulations.combined.txt file.
+
+In the "Simulated and empirical data plot" section of the script, the number of lines should match the number of simulations (plus one at the top for the empirical data). For example, if there were 10 simulations, the lines for all 'hpsmcNo" from 11 to 30 should be commented out, leaving the first line "dataset$X3==hpsmc", and the bottom 10 lines. 
+
+Run the entire script to generate the pdf file of the simulated data plot, and look at the plot to determine where the confidence interval lines should be. Select lines that do not overlap the empirical data line in the section between the two red horizontal dashed lines. Change the alpha values for the selected confidence interval lines from 0.9 to 1.0 to change their color from gray to black, and re-run the script to generate a new plot with the selected confidence interval lines. 
+
+
+
+
+
+
+
+
 
 
 
