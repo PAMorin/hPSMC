@@ -30,6 +30,8 @@ psmc (from https://github.com/lh3/psmc)
 
 ms (Hudson, R. R. (2002), https://home.uchicago.edu/~rhudson1/source/mksamples.html)
 
+R version 4.4.3
+
 From https://github.com/jacahill/hPSMC/tree/master:
 
 psmcfa_from_2_fastas.py
@@ -42,7 +44,7 @@ hPSMC_quantify_split_time.py
 Methods described on github.com/jacahill/hpsmc use the program "pu2fa" to genearte haploidized consensus chromosome sequences from a bam pileup file, using very high base quality threshold (-Q60) to "minimize the inpact of sequencing error". Here, I use the program angsd to generate the haploid consensus genome, including only specified chromosomes, and less stringent mapping and base quality thresholds (-minQ 25 -minmapq 25). 
 
 Input:
-bamlist.txt: a text file listing the path and filename for each sample or species bam file to be used for generating pseudo-hybrid genomes. File names should start with format "${sp}_${ID}", where sp=(species ID) and ID=(sample ID), separated by "_". 
+bamlist.txt: a text file listing the path and filename for each sample or species bam file to be used for generating pseudo-hybrid genomes. File names should start with format "${sp}\_${ID}", where sp=(species ID) and ID=(sample ID), separated by "\_". 
 
 
 Chromosome IDs: the scaffold IDs that correspond to autosomes in a chromosome-resolved reference genome that was used as the reference for mapping reads from all of the samples/species to be used for generating pseudo-hybrid genomes.
@@ -50,7 +52,7 @@ Chromosome IDs: the scaffold IDs that correspond to autosomes in a chromosome-re
 `sbatch 1.hPSMC_consensus_genomes_array_sedna.sh`
 
 Output:
-New subdirectory containing haploid consensus genome fasta files for each sample/species genome bam file. File names will start with format "${sp}_${ID}", where sp=(species ID) and ID=(sample ID), separated by "_". 
+New subdirectory containing haploid consensus genome fasta files for each sample/species genome bam file. File names will start with format "${sp}\_${ID}", where sp=(species ID) and ID=(sample ID), separated by "\_". 
 
 
 ## 2. Generate pseudo-hybrid sequence files (hpsmcfa)
@@ -86,7 +88,7 @@ psmc.out.eps - rendered plot of the psmc results (Encapsulated PostScript format
 
 psmc.out.0.txt - summary output for psmc (used to determine the pre-divergence Ne in next step).
 
-![Model] https://github.com/PAMorin/hPSMC/blob/main/Barn_Bmin_9.10E10_msy_t15_psmc.out.png
+![alt text] (https://github.com/PAMorin/hPSMC/blob/main/Barn_Bmin_9.10E10_msy_t15_psmc.out.png)
 
 ## 4. Simulate hPSMC using ms coalescent simulator to estimate confidence intervals for divergence time
 
@@ -98,7 +100,7 @@ PSMC_PreDivNe_list.csv: CSV file containing column of sample/species pairs (matc
 
 ### Get the estimated pre-divergence Ne for each pair from the step 3 output file "...psmc.out.0.txt". The third column in the file represents Ne/10,000. Select a value that immediately precedes the rapid increase in the top lines of the file, representing the onset of divergence. 
 
-(insert example)
+![alt text] (https://github.com/PAMorin/hPSMC/blob/main/example_psmc.out.0.txt.png)
 
 `sbatch 4.hPSMC_split_simulations_array_sedna.sh`
 
@@ -121,7 +123,7 @@ In the "Simulated and empirical data plot" section of the script, the number of 
 
 Run the entire script to generate the pdf file of the simulated data plot, and look at the plot to determine where the confidence interval lines should be. Select lines that do not overlap the empirical data line in the section between the two red horizontal dashed lines. Change the alpha values for the selected confidence interval lines from 0.9 to 1.0 to change their color from gray to black, and re-run the script to generate a new plot with the selected confidence interval lines. 
 
-![Model] https://github.com/PAMorin/hPSMC/blob/main/Bbai_Bmin_sim_plot.png
+![alt text] (https://github.com/PAMorin/hPSMC/blob/main/Bbai_Bmin_sim_plot.png)
 
 
 
