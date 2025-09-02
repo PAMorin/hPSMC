@@ -101,7 +101,7 @@ Generation length to be used for scaling hPSMC plots. This should be an estimate
 Simulation number and time range (e.g., 100,000 - 1,000,000 years in 100,000 year increments)
 PSMC_PreDivNe_list.csv: CSV file containing column of sample/species pairs (matching output file format from step 3) and the estimated pre-divergence Ne value for each pair.
 
-### Get the estimated pre-divergence Ne for each pair from the step 3 output file "...psmc.out.0.txt". The third column in the file represents Ne/10,000. Select a value that immediately precedes the rapid increase in the top lines of the file, representing the onset of divergence. 
+### Get the estimated pre-divergence Ne for each pair from the step 3 output file "...psmc.out.0.txt". The second column in the file represents Ne/10,000. Select a value that immediately precedes the rapid increase in the top lines of the file, representing the onset of divergence. 
 
 <p align="center">
   <img src="/images/example_psmc.out.0.txt.png" alt="Drawing" width="250"/>
@@ -128,11 +128,7 @@ In the "Simulated and empirical data plot" section of the script, the number of 
 
 Run the entire script to generate the pdf file of the simulated data plot, and look at the plot to determine where the confidence interval lines should be. Select lines that do not overlap the empirical data line in the section between the two red horizontal dashed lines. Change the alpha values for the selected confidence interval lines from 0.9 to 1.0 to change their color from gray to black, and re-run the script to generate a new plot with the selected confidence interval lines. 
 
-<p align="center">
-  <img src="/images/Bbai_Bmin_sim_plot.png" alt="Drawing" width="250"/>
-</p>
-
-
+![](/image/Bbai_Bmin_sim_plot.png)
 
 
 
