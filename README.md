@@ -88,7 +88,7 @@ psmc.out.eps - rendered plot of the psmc results (Encapsulated PostScript format
 
 psmc.out.0.txt - summary output for psmc (used to determine the pre-divergence Ne in next step).
 
-![alt text] (https://github.com/PAMorin/hPSMC/blob/main/Barn_Bmin_9.10E10_msy_t15_psmc.out.png)
+![screenshot] (images/Barn_Bmin_9.10E10_msy_t15_psmc.out.png)
 
 ## 4. Simulate hPSMC using ms coalescent simulator to estimate confidence intervals for divergence time
 
@@ -100,7 +100,7 @@ PSMC_PreDivNe_list.csv: CSV file containing column of sample/species pairs (matc
 
 ### Get the estimated pre-divergence Ne for each pair from the step 3 output file "...psmc.out.0.txt". The third column in the file represents Ne/10,000. Select a value that immediately precedes the rapid increase in the top lines of the file, representing the onset of divergence. 
 
-![alt text] (https://github.com/PAMorin/hPSMC/blob/main/example_psmc.out.0.txt.png)
+![screenshot] (images/example_psmc.out.0.txt.png)
 
 `sbatch 4.hPSMC_split_simulations_array_sedna.sh`
 
@@ -123,7 +123,7 @@ In the "Simulated and empirical data plot" section of the script, the number of 
 
 Run the entire script to generate the pdf file of the simulated data plot, and look at the plot to determine where the confidence interval lines should be. Select lines that do not overlap the empirical data line in the section between the two red horizontal dashed lines. Change the alpha values for the selected confidence interval lines from 0.9 to 1.0 to change their color from gray to black, and re-run the script to generate a new plot with the selected confidence interval lines. 
 
-![alt text] (https://github.com/PAMorin/hPSMC/blob/main/Bbai_Bmin_sim_plot.png)
+![screenshot] (images/Bbai_Bmin_sim_plot.png)
 
 
 
