@@ -88,7 +88,9 @@ psmc.out.eps - rendered plot of the psmc results (Encapsulated PostScript format
 
 psmc.out.0.txt - summary output for psmc (used to determine the pre-divergence Ne in next step).
 
-![screenshot] (https://github.com/PAMorin/hPSMC/tree/main/images/Barn_Bmin_9.10E10_msy_t15_psmc.out.png)
+<p align="center">
+  <img src="/image/Barn_Bmin_9.10E10_msy_t15_psmc.out.png" alt="Drawing" width="250"/>
+</p>
 
 ## 4. Simulate hPSMC using ms coalescent simulator to estimate confidence intervals for divergence time
 
